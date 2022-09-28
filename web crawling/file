@@ -1,0 +1,22 @@
+from urllib.request import urlopen
+from bs4 import BeautifulSoup
+import requests
+
+######## file open
+with open("/Users/danawacomputer/web/fionela.txt", "w") as file:
+    file.write("Stocks of famous companies\n\n")
+
+
+
+
+######## web crawling
+html = urlopen("https://www.naver.com")
+bsObject = BeautifulSoup(html, "html.parser")
+
+
+for meta in bsObject.head.find_all('meta'):
+    print(meta.get('content'))
+
+
+
+######## main
